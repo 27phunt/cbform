@@ -91,15 +91,15 @@ transform: scale(2);
  <body>
 
 
-<t2>Chromebook Charger Form</t2>
+<t2>Loaner Chromebook Form</t2>
 <hr><hr>
 <t1>I am here to …</t1>
 <hr>   
 <form>
     <input type="radio" id="Return" name="reason" value="Borrow">
-    <label for="Return"><t3>Borrow a charger</t3></label><br>
+    <label for="Return"><t3>Borrow a Loaner</t3></label><br>
     <input type="radio" id="Borrow" name="reason" value="Return">
-    <label for="Borrow"><t3>Return a charger</t3></label><br>
+    <label for="Borrow"><t3>Return a Loaner</t3></label><br>
    </form>
 
 
@@ -122,7 +122,7 @@ transform: scale(2);
 
 
 <hr><hr>
-   <t3>If you chose broken, please explain the issue</t3>
+   <t3>Additional Comments</t3>
 <hr>
     <textarea id="comments" name="comments" rows="3" cols="50"></textarea>
    <hr>
@@ -146,9 +146,9 @@ var six = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
 for (var x = 1; x < 6; x++) {
- fetch(script+"?Chargers&false&"+String(x)+"&"+eval(numbers[x]))
+ fetch(script+"?Loaners&false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Chargers&true&6&"+six)
+ fetch(script+"?Loaners&true&6&"+six)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
