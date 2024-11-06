@@ -135,6 +135,7 @@ transform: scale(2);
  </body>
   <script>
 function submit() {
+ try {
 var script = "https://script.google.com/macros/s/AKfycbyrQXLSgcw3BUOy3F2Ph1Rgj4aXus9RVPPerjJir_O_dUT12ihoj1xcQ1Hji_Kdu7v6/exec"
 var one = document.querySelector('input[name="reason"]:checked').value;
 var two = document.getElementById('firstname').value
@@ -148,7 +149,9 @@ for (var x = 1; x < 6; x++) {
  fetch(script+"?Chargers&false&"+String(x)+"&"+eval(numbers[x]))
 }
  fetch(script+"?Chargers&true&6&"+six)
-window.top.location.href = "/cbform/Form/"    
+ } catch {
+ }
+ window.top.location.href = "/cbform/Form/"    
 }
    
    </script>
