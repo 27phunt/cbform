@@ -113,16 +113,9 @@ transform: scale(2);
    <t1>Your Email</t1>
 <hr>
    <input type="text" id="email" placeholder="Email Address">
-<hr><hr>
-
-
-   <t1>Serial Number</t1>
-<hr>
-   <input type="text" id="sn" placeholder="Serial Number">
-
 
 <hr><hr>
-   <t3>If you chose broken, please explain the issue</t3>
+   <t3>Additional Details</t3>
 <hr>
     <textarea id="comments" name="comments" rows="3" cols="50"></textarea>
    <hr>
@@ -141,14 +134,13 @@ var one = document.querySelector('input[name="reason"]:checked').value;
 var two = document.getElementById('firstname').value
 var three = document.getElementById('lastname').value
 var four = document.getElementById('email').value
-var five = document.getElementById('sn').value
-var six = document.getElementById('comments').value
+var five = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 6; x++) {
+for (var x = 1; x < 5; x++) {
  fetch(script+"?Chargers&false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Chargers&true&6&"+six)
+ fetch(script+"?Chargers&true&6&"+five)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
