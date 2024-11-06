@@ -135,7 +135,7 @@ transform: scale(2);
  </body>
   <script>
 function submit() {
-var script = "https://script.google.com/macros/s/AKfycbzE1WbwEmJ_4Ar5TMNfqBvYShIvS_XtBaD7V5gR5zBU-bZoOuyvfMAJuxVIUZm-Yfrw/exec"
+var script = "https://script.google.com/macros/s/AKfycbxm71bl91_cEWkxHUHxk6Xtgz1gK2eetEkYLj5A4ezPpU3BaRv7guqdeDHMm5piiVlO/exec"
 var one = ""
 var two = document.getElementById('firstname').value
 var three = document.getElementById('lastname').value
@@ -144,7 +144,7 @@ var five = document.getElementById('sn').value
 var six = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 5; x++) {
+for (var x = 1; x < 6; x++) {
  fetch(script+"?Chargers&false&"+String(x)+"&"+eval(numbers[x]))
 }
    fetch(script+"?Chargers&true&6&"+six)
