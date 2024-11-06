@@ -74,13 +74,12 @@
 <hr><hr>
 <button class="tablink" onclick="openForm('ind3')"><h2>Loaner Chromebook</h2></button>
 <hr><hr>
-<button class="tablink" onclick="openForm('ind4')"><h2>Charger</h2></button>
+<button class="tablink" onclick="openForm('Charger.html')"><h2>Charger</h2></button>
 
 
 <script>
-function openForm(method) {
-var num = method.substring(3,10)
-window.top.location.href = "${backendurl}?Form&&&"+num
+function openForm(url) {
+window.top.location.href = "/Form/"+url
 }
 </script>
  
