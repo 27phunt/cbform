@@ -145,7 +145,7 @@ var six = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
 for (var x = 1; x < 5; x++) {
- fetch(script+"?false&"+String(x)+"&"+numbers[x])
+ fetch(script+"?false&"+String(x)+"&"+eval(numbers[x]))
 }
    fetch(script+"?true&6"+six)
     }
