@@ -91,18 +91,7 @@ transform: scale(2);
  <body>
 
 
-<t2>Chromebook Charger Form</t2>
-<hr><hr>
-<t1>I am here to …</t1>
-<hr>   
-<form>
-    <input type="radio" id="Return" name="reason" value="Borrow">
-    <label for="Return"><t3>Borrow a charger</t3></label><br>
-    <input type="radio" id="Borrow" name="reason" value="Return">
-    <label for="Borrow"><t3>Return a charger</t3></label><br>
-   </form>
-
-
+<t2>Broken Chromebook Form</t2>
 <hr><hr>
    <t1>Your Name</t1>
 <hr>
@@ -122,14 +111,11 @@ transform: scale(2);
 
 
 <hr><hr>
-   <t3>If you chose broken, please explain the issue</t3>
+   <t3>Please explain the issue</t3>
 <hr>
     <textarea id="comments" name="comments" rows="3" cols="50"></textarea>
    <hr>
-   
-
-
-
+ 
 
 <button onclick="submit()">Submit</button>
  </body>
@@ -137,18 +123,17 @@ transform: scale(2);
 function submit() {
  try {
 var script = "https://script.google.com/macros/s/AKfycbyrQXLSgcw3BUOy3F2Ph1Rgj4aXus9RVPPerjJir_O_dUT12ihoj1xcQ1Hji_Kdu7v6/exec"
-var one = document.querySelector('input[name="reason"]:checked').value;
-var two = document.getElementById('firstname').value
-var three = document.getElementById('lastname').value
-var four = document.getElementById('email').value
-var five = document.getElementById('sn').value
-var six = document.getElementById('comments').value
+var one = document.getElementById('firstname').value
+var two = document.getElementById('lastname').value
+var three = document.getElementById('email').value
+var four = document.getElementById('sn').value
+var five = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 6; x++) {
- fetch(script+"?Chargers&false&"+String(x)+"&"+eval(numbers[x]))
+for (var x = 1; x < 5; x++) {
+ fetch(script+"?Broken&false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Chargers&true&6&"+six)
+ fetch(script+"?Broken&true&6&"+five)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
