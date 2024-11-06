@@ -141,7 +141,7 @@ var email = document.getElementById('email').value
 var sn = document.getElementById('sn').value
 var comments = document.getElementById('comments').value
 
- window.top.location.href = "https://script.google.com/macros/s/AKfycbz7SewQessqmfdE-dmsItnt6_4o8HbKN26Zv_vD-onKiekJFDlYVHih7YFuMGVNiTfB/exec?Charger&"+firstname+"&"+lastname+"&"+email+"&"+sn+"&"+comments
+ fetch("https://script.google.com/macros/s/AKfycbz7SewQessqmfdE-dmsItnt6_4o8HbKN26Zv_vD-onKiekJFDlYVHih7YFuMGVNiTfB/exec?Charger&"+firstname+"&"+lastname)
 }
    </script>
  </body>
