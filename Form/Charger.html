@@ -135,17 +135,20 @@ transform: scale(2);
  </body>
   <script>
 function submit() {
-var firstname = document.getElementById('firstname').value
-var lastname = document.getElementById('lastname').value
-var email = document.getElementById('email').value
-var sn = document.getElementById('sn').value
-var comments = document.getElementById('comments').value
+var script = "https://script.google.com/macros/s/AKfycbxkfCCD2SEUU-RJG8nGztMub4_b7i56DMXcr57Gx_WEiqN-SErzSvP2_kvp8Uraus-4/exec"
+var one = ""
+var two = document.getElementById('firstname').value
+var three = document.getElementById('lastname').value
+var four = document.getElementById('email').value
+var five = document.getElementById('sn').value
+var six = document.getElementById('comments').value
 
-var requestid = rand(1,3000)
-var column = 1
-
- fetch("https://script.google.com/macros/s/AKfycbz7SewQessqmfdE-dmsItnt6_4o8HbKN26Zv_vD-onKiekJFDlYVHih7YFuMGVNiTfB/exec?"+requestid+"&"column+"&"+firstname)
+var numbers = ["","one","two","three","four","five","six"]
+for (var x = 1; x < 5; x++) {
+ fetch(script+"?false&"+x+"&"+numbers[x])
 }
+   fetch(script+"?true&6"+six
+    }
    </script>
  </body>
 </html>
