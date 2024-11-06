@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+.tablink {
+ background-color: #555;
+ color: white;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ font-size: 17px;
+ width: 75%;
+}
+
+
+.tablink:hover {
+ background-color: #777;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+ color: white;
+ display: none;
+ padding: 50px;
+ text-align: center;
+}
+
+
+#Method1 {background-color:green;}
+#Method2 {background-color:blue;}
+
+
+     body {
+       font-family: 'Comic Sans MS', cursive, sans-serif;
+       text-align: center;
+       margin: 0;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       background-color: #f7f7f7;
+     }
+
+
+     h1 {
+       color: #333;
+     }
+</style>
+</head>
+<body>
+
+
+<h1>Choose an option</h1>
+<hr><hr>
+
+
+<div id="Method1" class="tabcontent">
+ <h1>Take a Loaner</h1>
+</div>
+
+
+<div id="Method2" class="tabcontent">
+ <h1>Return a Loaner</h1>
+</div>
+
+
+<button class="tablink" onclick="openForm('ind2')" id="defaultOpen"><h2>Broken Chromebook</h2></button>
+<hr><hr>
+<button class="tablink" onclick="openForm('ind3')"><h2>Loaner Chromebook</h2></button>
+<hr><hr>
+<button class="tablink" onclick="openForm('ind4')"><h2>Charger</h2></button>
+
+
+<script>
+function openForm(method) {
+var num = method.substring(3,10)
+window.top.location.href = "${backendurl}?Form&&&"+num
+}
+</script>
+ 
+</body>
+</html>
