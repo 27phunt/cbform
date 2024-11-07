@@ -131,9 +131,9 @@ var five = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
 for (var x = 1; x < 5; x++) {
- fetch(script+"?Loaners&false&"+String(x)+"&"+eval(numbers[x]))
+ fetch(script+"?Broken&false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Loaners&true&5&"+five)
+ fetch(script+"?Broken&true&5&"+five)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
