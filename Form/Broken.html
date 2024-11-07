@@ -123,17 +123,18 @@ transform: scale(2);
 function submit() {
  try {
 var script = "https://script.google.com/macros/s/AKfycbw5aiVRl6x2-NMyU9hOSpNMf_I-tJlJUfE0ENSiLDHfVl95INJTj2f1hTztuCI3rQEx/exec"
-var one = document.getElementById('firstname').value
-var two = document.getElementById('lastname').value
-var three = document.getElementById('email').value
-var four = document.getElementById('sn').value
-var five = document.getElementById('comments').value
+var one = document.querySelector('input[name="reason"]:checked').value;
+var two = document.getElementById('firstname').value
+var three = document.getElementById('lastname').value
+var four = document.getElementById('email').value
+var five = document.getElementById('sn').value
+var six = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 5; x++) {
- fetch(script+"?Broken&false&"+String(x)+"&"+eval(numbers[x]))
+for (var x = 1; x < 6; x++) {
+ fetch(script+"?Loaners&false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Broken&true&6&"+five)
+ fetch(script+"?Loaners&true&6&"+six)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
