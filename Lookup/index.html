@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>FRCS SmartPass</title>
+   <style>
+     body {
+       font-family: 'Comic Sans MS', cursive, sans-serif;
+       text-align: center;
+       margin: 0;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       background-color: #f7f7f7;
+     }
 
+     input[type="text"] {
+       font-size: 1.2em;
+       padding: 0.5em;
+       margin-bottom: 1em;
+       text-align: center;
+     }
+
+     button {
+       font-size: 1.2em;
+       padding: 0.5em 1em;
+       cursor: pointer;
+       background-color: #5cb85c;
+       color: white;
+       border: none;
+       border-radius: 5px;
+     }
+
+
+     button:hover {
+       background-color: #4cae4c;
+     }
+   </style>
+ </head>
+ <body>
+
+   <h1>Enter the Chromebook's Serial Number</h1>
+<hr>
+   <input type="text" id="room" placeholder="Serial Number">
+<hr><hr>
+
+<button onclick="submit()">Open</button>
+ </body>
+
+ 
+  <script>
+function submit() {
+var script = "https://script.google.com/a/macros/frcsfalcons.org/s/AKfycbwRKu64gNfvLWdT4Je1_rmdBL2D_oEz0zK-OC6_BFfGb4rbuZo_aih4Y4uPC-Q6Ukw/exec"
+var room = document.getElementById('room').value
+window.top.location.href = script+"?"+room
+}
+   
+   </script>
+ </body>
+</html>
