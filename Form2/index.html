@@ -95,7 +95,7 @@ var script = "https://script.google.com/macros/s/AKfycbzlVttzRuYNLAmGAb2U87J1mlj
 
 var fields = ['firstname','lastname','email','sn','comments']
   
-for (var x = 1; x < fields.length; x++) {
+for (x = 1; x < fields.length; x++) {
 fetch(script+"?false&"+String(x)+"&"+document.getElementById(fields[x-1]).value)
 }
 fetch(script+"?true&"+String(x)+"&"+document.getElementById(fields.length-1).value)
