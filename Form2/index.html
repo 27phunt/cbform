@@ -133,9 +133,9 @@ var five = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
 for (var x = 1; x < 5; x++) {
- fetch(script+"false&"+String(x)+"&"+eval(numbers[x]))
+ fetch(script+"?false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"true&5&"+five)
+ fetch(script+"?true&5&"+five)
  } catch {
  }
  window.top.location.href = "/cbform/Form2/confirm.html"
