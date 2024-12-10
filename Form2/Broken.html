@@ -124,7 +124,7 @@ transform: scale(2);
   <script>
 function submit() {
  try {
-var script = "https://script.google.com/macros/s/AKfycbw5aiVRl6x2-NMyU9hOSpNMf_I-tJlJUfE0ENSiLDHfVl95INJTj2f1hTztuCI3rQEx/exec"
+var script = "https://script.google.com/macros/s/AKfycbzWDyCX6IKBJs6G7dwFtbKTqaAHZe5B5-X34WfXEJ9Y-bveuADO2zmRM85jHmHIf3AM/exec"
 var one = document.getElementById('firstname').value
 var two = document.getElementById('lastname').value
 var three = document.getElementById('email').value
@@ -133,9 +133,9 @@ var five = document.getElementById('comments').value
 
 var numbers = ["","one","two","three","four","five","six"]
 for (var x = 1; x < 5; x++) {
- fetch(script+"?Broken&false&"+String(x)+"&"+eval(numbers[x]))
+ fetch(script+"false&"+String(x)+"&"+eval(numbers[x]))
 }
- fetch(script+"?Broken&true&5&"+five)
+ fetch(script+"true&5&"+five)
  } catch {
  }
  window.top.location.href = "/cbform/Form/"    
