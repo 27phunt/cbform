@@ -94,9 +94,12 @@ function submit() {
 var script = "https://script.google.com/macros/s/AKfycbzlVttzRuYNLAmGAb2U87J1mljK06ERUlSNWny_OmqZy_EYow2kObU9iMt5GjsIi1J3/exec"
 
 var fields = ['firstname','lastname','email','sn','comments']
-  
+
+ 
 for (x = 1; x < fields.length; x++) {
-fetch(script+"?false&"+String(x)+"&"+document.getElementById(fields[x-1]).value)
+ var doc = document.getElementById(fields[x-1]).value
+ alert(doc)
+fetch(script+"?false&"+String(x)+"&"+doc)
 }
 fetch(script+"?true&"+String(x)+"&"+document.getElementById(fields.length-1).value)
 //} catch {}
