@@ -96,52 +96,6 @@ transform: scale(2);
 
 <t2>Broken Chromebook Form</t2>
 <hr><hr>
-   <t1>Your Name</t1>
-<hr>
-   <p><input type="text" id="firstname" placeholder="First Name">
-   <input type="text" id="lastname" placeholder="Last Name"></p>
-  
-<hr><hr>
-   <t1>Your Email</t1>
-<hr>
-   <input type="text" id="email" placeholder="Email Address">
-<hr><hr>
-
-
-   <t1>Serial Number</t1>
-<hr>
-   <input type="text" id="sn" placeholder="Serial Number">
-
-
-<hr><hr>
-   <t3>Please explain the issue</t3>
-<hr>
-    <textarea id="comments" name="comments" rows="3" cols="50"></textarea>
-   <hr>
- 
-
-<button onclick="submit()">Submit</button>
- </body>
-  <script>
-function submit() {
- try {
-var script = "https://script.google.com/macros/s/AKfycbzWDyCX6IKBJs6G7dwFtbKTqaAHZe5B5-X34WfXEJ9Y-bveuADO2zmRM85jHmHIf3AM/exec"
-var one = document.getElementById('firstname').value
-var two = document.getElementById('lastname').value
-var three = document.getElementById('email').value
-var four = document.getElementById('sn').value
-var five = document.getElementById('comments').value
-
-var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 5; x++) {
- fetch(script+"false&"+String(x)+"&"+eval(numbers[x]))
-}
- fetch(script+"true&5&"+five)
- } catch {
- }
- window.top.location.href = "/cbform/Form2/confirm.html"
-}
-   
-   </script>
+   <t1>Your Response has been recorded</t1>
  </body>
 </html>
