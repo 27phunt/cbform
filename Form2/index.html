@@ -89,17 +89,18 @@ text-align: center;
  <hr class="main"><hr class="main">
  </body>
   <script>
-function submit() {
- //try {
-var script = "https://script.google.com/macros/s/AKfycbzlVttzRuYNLAmGAb2U87J1mljK06ERUlSNWny_OmqZy_EYow2kObU9iMt5GjsIi1J3/exec"
+// -------------------------------------------------------------------------
+   // Apps Script Web App URL
+const script = "https://script.google.com/macros/s/AKfycbzlVttzRuYNLAmGAb2U87J1mljK06ERUlSNWny_OmqZy_EYow2kObU9iMt5GjsIi1J3/exec"
 
-var fields = 5
- 
-for (x=1; x<fields; x++) {
-fetch(script+"?false&"+String(x)+"&"+document.getElementById("f"+String(x)).value)
-}
+   // Total number of input fields
+const fields = 5
+// -------------------------------------------------------------------------
+ function submit() {
+// Send Input To Google Script
+for (x=1; x<fields; x++) {fetch(script+"?false&"+String(x)+"&"+document.getElementById("f"+String(x)).value)}
 fetch(script+"?true&"+String(fields)+"&"+document.getElementById("f"+String(fields)).value)
-//} catch {}
+// Open Response Recorded Page
 window.top.location.href = "/cbform/Form2/confirm.html"
 } 
    </script>
