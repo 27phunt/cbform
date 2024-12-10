@@ -92,18 +92,14 @@ text-align: center;
 function submit() {
  try {
 var script = "https://script.google.com/macros/s/AKfycbzWDyCX6IKBJs6G7dwFtbKTqaAHZe5B5-X34WfXEJ9Y-bveuADO2zmRM85jHmHIf3AM/exec"
-var one = document.getElementById('firstname').value
-var two = document.getElementById('lastname').value
-var three = document.getElementById('email').value
-var four = document.getElementById('sn').value
-var five = document.getElementById('comments').value
 
-var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 5; x++) {
- fetch(script+"?false&"+String(x)+"&"+eval(numbers[x]))
+var fields = ['firstname','lastname','email','sn','comments']
+  
+for (var x = 1; x < fields.length; x++) {
+fetch(script+"?false&"+String(x)+"&"+document.getElementById(fields[x-1]).value)
 }
- fetch(script+"?true&5&"+five)
- } catch {}
+fetch(script+"?true&"+String(x)+"&"+document.getElementById(fields.length-1).value)
+} catch {}
 window.top.location.href = "/cbform/Form2/confirm.html"
 } 
    </script>
