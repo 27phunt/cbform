@@ -41,7 +41,7 @@
 
    <h1>Enter the Chromebook's Serial Number</h1>
 <hr>
-   <input type="text" id="room" placeholder="Serial Number">
+   <input type="text" id="sn" placeholder="Serial Number">
 <hr><hr>
 
 <button onclick="submit()">Open</button>
@@ -49,12 +49,11 @@
 
  
   <script>
-function submit() {
-var script = "https://script.google.com/macros/s/AKfycbyhQS84c8_2uNjyyB29M6MSG0s9ilSb99BjwqsqfLJE9Yb7cEEiI1jE0ltM3XdsFPKO/exec"
-var room = document.getElementById('room').value
-window.top.location.href = script+"?"+room
-}
-   
+// -------------------------------------------------------------------------
+   // Apps Script Web App URL
+const script = "https://script.google.com/macros/s/AKfycbwbvXDrC0OMllP1UDmw-io2LlCCoDAUxwxsj0AYtzGZWlLLwGrV0evEf5-XhBiC1Pm8/exec"
+// -------------------------------------------------------------------------
+function submit() {window.top.location.href = script+"?"+document.getElementById('sn').value}
    </script>
  </body>
 </html>
