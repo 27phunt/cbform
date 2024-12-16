@@ -39,8 +39,8 @@
 // Input fields [Placeholder,type]
 const fields = ["text","text","text","text","text"]
 
-const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0].split("s")[0]
-function onLoad() {document.getElementById("title").textContent = sheet+" Chromebook Form"}
+const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
+function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
 
 function submit() {
   var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
