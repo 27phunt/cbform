@@ -1,65 +1,52 @@
 <!DOCTYPE html><html><head><title>CB Form</title><style>
-   body {font-family: 'Comic Sans MS', cursive, sans-serif; text-align: center;
-     margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #f7f7f7;}
-   h1 {color: #333;}
-   t1 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 2.2em;}
-   t2 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 5.2em;}
-   t3 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 1.8em;}
-   p {color: #666; margin-bottom: 2em;}
-   input[type="text"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 1em; text-align: center;}
-   textarea {width: 70%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px;
-     background-color: #f8f8f8; font-size: 16px; resize: none; text-align: center;}
-   input[type="radio"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 2em; text-align: center; transform: scale(2);}
-   button {font-size: 1.2em; padding: 0.5em 1em; cursor: pointer; background-color: #5cb85c; color: white; border: none; border-radius: 5px;}
-   button:hover {background-color: #4cae4c;}
-   body {font-family: "Lato", sans-serif;}
-   </style></head><body>
-
+  body {font-family: 'Comic Sans MS', cursive, sans-serif; text-align: center;
+    margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #f7f7f7;}
+  h1 {color: #333;}
+  t1 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 2.2em;}
+  t2 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 5.2em;}
+  t3 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 1.8em;}
+  p {color: #666; margin-bottom: 2em;}
+  input[type="text"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 1em; text-align: center;}
+  textarea {width: 70%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px;
+    background-color: #f8f8f8; font-size: 16px; resize: none; text-align: center;}
+  input[type="radio"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 2em; text-align: center; transform: scale(2);}
+  button {font-size: 1.2em; padding: 0.5em 1em; cursor: pointer; background-color: #5cb85c; color: white; border: none; border-radius: 5px;}
+  button:hover {background-color: #4cae4c;}
+  </style></head><body>
 <t2>Broken Chromebook Form</t2>
-    <hr><hr>
+  <hr><hr>
 <t1>Your Name</t1>
-    <hr><p>
+  <hr><p>
 <input type="text" id="f1" placeholder="First Name">
 
-<input type="text" id="f2" placeholder="Last Name">
-    </p><hr><hr>
+<input type="text" id="f2" placeholder="Last Name"></p>
+  <hr><hr>
 <t1>Your Email</t1>
-    <hr>
+  <hr>
 <input type="text" id="f3" placeholder="Email Address">
-    <hr><hr>
+  <hr><hr>
 <t1>Serial Number</t1>
-    <hr>
+  <hr>
 <input type="text" id="f4" placeholder="Serial Number">
-    <hr><hr>
+  <hr><hr>
 <t3>Please explain the issue</t3>
-    <hr>
+  <hr>
 <textarea id="f5" name="comments" rows="3" cols="50"></textarea>
-    <hr>
+  <hr>
 <button onclick="submit()">Submit</button>
-</body><script>
-// -------------------------------------------------------------------------
-    // Apps Script Web App URL
-//const script = "https://script.google.com/macros/s/AKfycbxv0S1sSfRgEWJPqD_7xRbGhaB1Sy4nDGN5_OgDk3oUw6OoInqcoRRmZTZjNMnESqgm/exec"
+  </body><script>
+// Input fields [Placeholder,type]
+const fields = ["text","text","text","text","text"]
 
-    // Total number of input fieldsx
-const fields = [["First Name","text"],["Last Name","text"],["Your Email","text"],["Serial Number","text"],["Comments","text"]]
-
-    // Sheet Name
-const sheet = "Broken"
-
-
-// -------------------------------------------------------------------------
- function submit() {var values = []
-var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
-
-for (x=1; x<fields.length+1; x++) {var id = "f"+x
-document.getElementById(id).setAttribute('placeholder',fields[x-1][0])
-if(fields[x-1][1]=="text") {values.push(document.getElementById(id).value)}
-if(fields[x-1][1]=="radio") {values.push(document.querySelector('input[id="'+id+'"]:checked').value)}}
-
-// Send Input To Google Script
-for (x=1; x<values.length+1; x++) {fetch(script+String(x==values.length)+"&"+x+"&"+values[x-1])}
-
-// Open Home Page
-window.top.location.href = "/cbform/Form/"}
-</script></body></html>
+function submit() {var sheet = window.location.pathname.split("/Form/")[1]
+  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
+    
+  // Get Input Values
+  for (x=1; x<fields.length+1; x++) {var id = "f"+x
+  if(fields[x-1]=="text") {var out = document.getElementById(id).value}
+  if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
+  fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
+  
+  // Return To Home Page
+  window.top.location.href = "/cbform/Form/"}
+  </script></body></html>
