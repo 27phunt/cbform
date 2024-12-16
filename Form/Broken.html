@@ -34,24 +34,32 @@
 <t3>Please explain the issue</t3>
     <hr>
 <textarea id="f5" name="comments" rows="3" cols="50"></textarea>
-   <hr>
+    <hr>
 <button onclick="submit()">Submit</button>
 </body><script>
 // -------------------------------------------------------------------------
-   // Apps Script Web App URL
+    // Apps Script Web App URL
 const script = "https://script.google.com/macros/s/AKfycbxv0S1sSfRgEWJPqD_7xRbGhaB1Sy4nDGN5_OgDk3oUw6OoInqcoRRmZTZjNMnESqgm/exec"
 
-   // Total number of input fields
-const fields = 5
+    // Total number of input fieldsx
+const fieldsx = 5
+const fields = [["First Name","text"],["Last Name","text"],["Your Email","text"],["Serial Number","text"],["Comments","text"]]
 
-  // Sheet Name
+    // Sheet Name
 const sheet = "Broken"
+
+
 // -------------------------------------------------------------------------
- function submit() {
+ function submit() {var values = []
+
+    for (x=1; x<fields.length+1; x++) {var id = "f"+x
+    document.getElementById(id).setAttribute('placeholder',fields[x-1][0])
+    if(fields[x-1][1]=="text") {values.push(document.getElementById(id).value)}
+    if(fields[x-1][1]=="radio") {values.push(document.querySelector('input[id="'+id+'"]:checked').value)}}
+alert(values)
 // Send Input To Google Script
-for (x=1; x<fields; x++) {fetch(script+"?"+sheet+"&false&"+String(x)+"&"+document.getElementById("f"+String(x)).value)}
-fetch(script+"?"+sheet+"true&"+String(fields)+"&"+document.getElementById("f"+String(fields)).value)
+for (x=0; x<values.length-1; x++) {fetch(script+"?"+sheet+"&false&"+x+"&"+values[x])}
+fetch(script+"?"+sheet+"true&"+values.length+"&"+values[values.length-1])
 // Open Home Page
-window.top.location.href = "/cbform/Form/"     
-} 
+window.top.location.href = "/cbform/Form/"} 
 </script></body></html>
