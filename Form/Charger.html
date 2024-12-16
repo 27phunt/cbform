@@ -129,21 +129,20 @@ transform: scale(2);
   <script>
 // -------------------------------------------------------------------------
     // Input fields [Placeholder,type]
-    const fields = [["First Name","text"],["Last Name","text"],["Your Email","text"],["Serial Number","text"],["Comments","text"]]
+    const fields = ["radio","text","text","text","text"]
     // Sheet Name
 const sheet = "Chargers"
 // -------------------------------------------------------------------------
- function submit() {var values = []
+
+ function submit() {
 var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
 
+// Get Input Values
 for (x=1; x<fields.length+1; x++) {var id = "f"+x
-document.getElementById(id).setAttribute('placeholder',fields[x-1][0])
-if(fields[x-1][1]=="text") {values.push(document.getElementById(id).value)}
-if(fields[x-1][1]=="radio") {values.push(document.querySelector('input[name="'+id+'"]:checked').value)}}
+if(fields[x-1]=="text") {var out = document.getElementById(id).value}
+if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
+fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
 
-// Send Input To Google Script
-for (x=1; x<values.length+1; x++) {fetch(script+String(x==values.length)+"&"+x+"&"+values[x-1])}
-
-// Open Home Page
+// Return To Home Page
 window.top.location.href = "/cbform/Form/"}
 </script></body></html>
