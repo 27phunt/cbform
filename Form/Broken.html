@@ -95,25 +95,25 @@ transform: scale(2);
 <hr><hr>
    <t1>Your Name</t1>
 <hr>
-   <p><input type="text" id="firstname" placeholder="First Name">
-   <input type="text" id="lastname" placeholder="Last Name"></p>
+   <p><input type="text" id="f1" placeholder="First Name">
+   <input type="text" id="f2" placeholder="Last Name"></p>
   
 <hr><hr>
    <t1>Your Email</t1>
 <hr>
-   <input type="text" id="email" placeholder="Email Address">
+   <input type="text" id="f3" placeholder="Email Address">
 <hr><hr>
 
 
    <t1>Serial Number</t1>
 <hr>
-   <input type="text" id="sn" placeholder="Serial Number">
+   <input type="text" id="f4" placeholder="Serial Number">
 
 
 <hr><hr>
    <t3>Please explain the issue</t3>
 <hr>
-    <textarea id="comments" name="comments" rows="3" cols="50"></textarea>
+    <textarea id="f5" name="comments" rows="3" cols="50"></textarea>
    <hr>
  
 
@@ -121,24 +121,21 @@ transform: scale(2);
  </body>
   <script>
 function submit() {
- try {
-var script = "https://script.google.com/macros/s/AKfycbw5aiVRl6x2-NMyU9hOSpNMf_I-tJlJUfE0ENSiLDHfVl95INJTj2f1hTztuCI3rQEx/exec"
-var one = document.getElementById('firstname').value
-var two = document.getElementById('lastname').value
-var three = document.getElementById('email').value
-var four = document.getElementById('sn').value
-var five = document.getElementById('comments').value
+// -------------------------------------------------------------------------
+   // Apps Script Web App URL
+const script = "https://script.google.com/macros/s/AKfycbxv0S1sSfRgEWJPqD_7xRbGhaB1Sy4nDGN5_OgDk3oUw6OoInqcoRRmZTZjNMnESqgm/exec"
 
-var numbers = ["","one","two","three","four","five","six"]
-for (var x = 1; x < 5; x++) {
- fetch(script+"?Broken&false&"+String(x)+"&"+eval(numbers[x]))
-}
- fetch(script+"?Broken&true&5&"+five)
- } catch {
- }
- window.top.location.href = "/cbform/Form/"    
-}
-   
-   </script>
- </body>
-</html>
+   // Total number of input fields
+const fields = 5
+
+  // Sheet Name
+const sheet = "Broken"
+// -------------------------------------------------------------------------
+ function submit() {
+// Send Input To Google Script
+for (x=1; x<fields; x++) {fetch(script+"?"+sheet+"&false&"+String(x)+"&"+document.getElementById("f"+String(x)).value)}
+fetch(script+"?"+sheet+"true&"+String(fields)+"&"+document.getElementById("f"+String(fields)).value)
+// Open Home Page
+window.top.location.href = "/cbform/Form/"     
+} 
+</script></body></html>
