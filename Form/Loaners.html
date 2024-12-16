@@ -12,7 +12,7 @@
    input[type="radio"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 2em; text-align: center; transform: scale(2);}
    button {font-size: 1.2em; padding: 0.5em 1em; cursor: pointer; background-color: #5cb85c; color: white; border: none; border-radius: 5px;}
    button:hover {background-color: #4cae4c;}
-   </style></head><body>
+   </style></head><body onload="onLoad()">
 
 <t2 id="title"></t2>
     <hr><hr>
@@ -40,7 +40,7 @@
 const fields = ["text","text","text","text","text"]
 
 const sheet = window.location.pathname.split("/Form/")[1]
-function onLoad() {document.getElementById("title").textContent = shweet+" Chromebook Form"}
+function onLoad() {document.getElementById("title").textContent = sheet+" Chromebook Form"}
 
 function submit() {
   var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
