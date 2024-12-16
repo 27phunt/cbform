@@ -36,23 +36,19 @@
 <textarea id="f5" name="comments" rows="3" cols="50"></textarea>
     <hr>
 <button onclick="submit()">Submit</button>
-    </body><script>
-// -------------------------------------------------------------------------
-    // Input fields [Placeholder,type]
-    const fields = ["radio","text","text","text","text"]
-    // Sheet Name
-const sheet = "Chargers"
-// -------------------------------------------------------------------------
+  </body><script>
+// Input fields [Placeholder,type]
+const fields = ["radio","text","text","text","text"]
 
- function submit() {
-var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
-
-// Get Input Values
-for (x=1; x<fields.length+1; x++) {var id = "f"+x
-if(fields[x-1]=="text") {var out = document.getElementById(id).value}
-if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
-fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
-
-// Return To Home Page
-window.top.location.href = "/cbform/Form/"}
-</script></body></html>
+function submit() {var sheet = window.location.pathname.split("/Form/")[1]
+  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
+    
+  // Get Input Values
+  for (x=1; x<fields.length+1; x++) {var id = "f"+x
+  if(fields[x-1]=="text") {var out = document.getElementById(id).value}
+  if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
+  fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
+  
+  // Return To Home Page
+  window.top.location.href = "/cbform/Form/"}
+  </script></body></html>
