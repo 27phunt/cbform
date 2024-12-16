@@ -4,87 +4,25 @@
 <title>CB Form</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-t2 {
-font-family: 'Comic Sans MS', cursive, sans-serif;
-       font-size: 5.2em;
-     }
-.tablink {
- background-color: #555;
- color: white;
- float: left;
- border: none;
- outline: none;
- cursor: pointer;
- padding: 14px 16px;
- font-size: 17px;
- width: 75%;
-}
-
-
-.tablink:hover {
- background-color: #777;
-}
-
-
-/* Style the tab content */
-.tabcontent {
- color: white;
- display: none;
- padding: 50px;
- text-align: center;
-}
-
-
+t2 {font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 5.2em;}
+.tablink {background-color: #555; color: white; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; font-size: 17px; width: 75%;}
+.tablink:hover {background-color: #777;}
+.tabcontent {color: white;display: none;padding: 50px;text-align: center;}
 #Method1 {background-color:green;}
 #Method2 {background-color:blue;}
-
-
-     body {
-       font-family: 'Comic Sans MS', cursive, sans-serif;
-       text-align: center;
-       margin: 0;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       background-color: #f7f7f7;
-     }
-
-
-     h1 {
-       color: #333;
-     }
-</style>
-</head>
-<body>
-
-    <t2>Chromebook Kiosk</t2>
+body {font-family: 'Comic Sans MS', cursive, sans-serif;text-align: center;margin: 0;display: flex;flex-direction: column;justify-content: center;align-items: center;background-color: #f7f7f7;}
+h1 {color: #333;}
+</style></head><body>
+<t2>Chromebook Kiosk</t2>
     <hr><hr>
-    
-    
-    <div id="Method1" class="tabcontent">
-     <h1>Take a Loaner</h1>
-    </div>
-    
-    
-    <div id="Method2" class="tabcontent">
-     <h1>Return a Loaner</h1>
-    </div>
-    
-    
-    <button class="tablink" onclick="openForm('Broken')" id="defaultOpen"><h2>Broken Chromebook</h2></button>
+<button class="tablink" onclick="openForm('Broken.html')" id="defaultOpen"><h2>Broken Chromebook</h2></button>
     <hr><hr>
-    <button class="tablink" onclick="openForm('Loaners')"><h2>Loaner Chromebook</h2></button>
+<button class="tablink" onclick="openForm('Loaners.html')"><h2>Loaner Chromebook</h2></button>
     <hr><hr>
-    <button class="tablink" onclick="openForm('Charger.html')"><h2>Chromebook Charger</h2></button>
-    
-    
-    <script>
-    
+<button class="tablink" onclick="openForm('Chargers.html')"><h2>Chromebook Charger</h2></button>
+    </body><script>
+                     // Apps Script URL
     const script =  "https://script.google.com/macros/s/AKfycbxv0S1sSfRgEWJPqD_7xRbGhaB1Sy4nDGN5_OgDk3oUw6OoInqcoRRmZTZjNMnESqgm/exec"
     
-    function openForm(url) {
-    window.top.location.href = "/cbform/Form/"+url+"?"+script.split("script.google.com/macros/s/")[1].split("/exec")[0]
-    }
-    </script></body></html>
-    
+    function openForm(url) {window.top.location.href = "/cbform/Form/"+url+"?"+script.split("script.google.com/macros/s/")[1].split("/exec")[0]}
+    </script></html>
