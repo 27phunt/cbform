@@ -56,9 +56,11 @@ const sheet = "Broken"
     document.getElementById(id).setAttribute('placeholder',fields[x-1][0])
     if(fields[x-1][1]=="text") {values.push(document.getElementById(id).value)}
     if(fields[x-1][1]=="radio") {values.push(document.querySelector('input[id="'+id+'"]:checked').value)}}
-alert(values)
+
 // Send Input To Google Script
-for (x=0; x<values.length-1; x++) {fetch(script+"?"+sheet+"&false&"+x+"&"+values[x])}
+for (x=0; x<values.length-1; x++) {
+    alert(x)
+    fetch(script+"?"+sheet+"&false&"+x+"&"+values[x])}
 fetch(script+"?"+sheet+"true&"+values.length+"&"+values[values.length-1])
 // Open Home Page
 window.top.location.href = "/cbform/Form/"} 
