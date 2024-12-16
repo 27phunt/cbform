@@ -39,7 +39,7 @@
 // Input fields [Placeholder,type]
 const fields = ["text","text","text","text","text"]
 
-const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
+const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0].split("s")[0]
 function onLoad() {document.getElementById("title").textContent = sheet+" Chromebook Form"}
 
 function submit() {
