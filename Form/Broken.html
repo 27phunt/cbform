@@ -59,8 +59,7 @@ const sheet = "Broken"
 
 // Send Input To Google Script
 for (x=0; x<values.length-1; x++) {
-    alert(x)
-    fetch(script+"?"+sheet+"&false&"+x+"&"+values[x])}
+fetch(script+"?"+sheet+"&false&"+String(x+1)+"&"+values[x])}
 fetch(script+"?"+sheet+"true&"+values.length+"&"+values[values.length-1])
 // Open Home Page
 window.top.location.href = "/cbform/Form/"} 
