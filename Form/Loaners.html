@@ -14,7 +14,7 @@
    button:hover {background-color: #4cae4c;}
    </style></head><body>
 
-<t2>Broken Chromebook Form</t2>
+<t2 id="title"></t2>
     <hr><hr>
 <t1>Your Name</t1>
     <hr><p>
@@ -39,7 +39,10 @@
 // Input fields [Placeholder,type]
 const fields = ["text","text","text","text","text"]
 
-function submit() {var sheet = window.location.pathname.split("/Form/")[1]
+const sheet = window.location.pathname.split("/Form/")[1]
+function onLoad() {document.getElementById("title").textContent = shweet+" Chromebook Form"}
+
+function submit() {
   var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
     
   // Get Input Values
