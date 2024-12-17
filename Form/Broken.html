@@ -34,6 +34,12 @@
 <textarea id="f5" name="comments" rows="3" cols="50"></textarea>
   <hr>
 <button onclick="submit()">Submit</button>
+<embed id="r1" type="text/html" width="1" height="1">
+<embed id="r2" type="text/html" width="1" height="1">
+<embed id="r3" type="text/html" width="1" height="1">
+<embed id="r4" type="text/html" width="1" height="1">
+<embed id="r5" type="text/html" width="1" height="1">
+<embed id="r6" type="text/html" width="1" height="1">
   </body><script>
 // Input field types ["text","radio"]
 const fields = ["text","text","text","text","text"]
@@ -42,16 +48,18 @@ const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
 function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
 
 function submit() {
-  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
-    
+//  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
+var script =     "https://script.google.com/macros/s/AKfycbwyo_jQKiuPZKpYQvYryRgl0SuoQsLJaVDpiXKcPAznGiAwo4SU1twTTEtIpTYhtzuz/exec?Broken&"
   // Get Input Values
-var pages = []
   for (x=1; x<fields.length+1; x++) {var id = "f"+x
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
-  if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
+  if(fields[x-1]=="radio") {var out = 		document.querySelector('input[name="'+id+'"]:checked').value}
   var url = script+String(x==fields.length)+"&"+x+"&"+out
-  fetch(url)
+  document.getElementById('r'+x).setAttribute('src',url)  
+  //fetch(url)
   }
   // Return To Home Page
-  window.top.location.href = "/cbform/Form/"}
+  window.top.location.href = "/cbform/Form/"
+  }
+
   </script></body></html>
