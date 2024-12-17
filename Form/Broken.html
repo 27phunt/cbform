@@ -35,7 +35,7 @@
   <hr>
 <button onclick="submit()">Submit</button>
   </body><script>
-// Input fields [Placeholder,type]
+// Input field types ["text","radio"]
 const fields = ["text","text","text","text","text"]
 
 const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
@@ -48,7 +48,11 @@ function submit() {
   for (x=1; x<fields.length+1; x++) {var id = "f"+x
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
-  fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
+  var url = script+String(x==fields.length)+"&"+x+"&"+out
+  var window = window.open(url, '_blank')
+  window.close()
+  //  fetch(url)
+}
   
   // Return To Home Page
   window.top.location.href = "/cbform/Form/"}
