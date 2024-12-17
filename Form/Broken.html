@@ -41,7 +41,7 @@ const fields = ["text","text","text","text","text"]
 const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
 function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
 
-function submit() {fetch("AppsScript.txt").then(r => r.text() ).then(t => run(t+"?"))}
+function submit() {fetch("AppsScript.txt").then(r => r.text() ).then(t => run(t.split("\n")[0]+"?"))}
 function run(script) {
   alert(script)
   // Get Input Values
