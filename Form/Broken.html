@@ -48,18 +48,17 @@ const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
 function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
 
 function submit() {
-//  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
-var script =     "https://script.google.com/macros/s/AKfycbwyo_jQKiuPZKpYQvYryRgl0SuoQsLJaVDpiXKcPAznGiAwo4SU1twTTEtIpTYhtzuz/exec?Broken&"
+  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
+//var script =     "https://script.google.com/macros/s/AKfycbwyo_jQKiuPZKpYQvYryRgl0SuoQsLJaVDpiXKcPAznGiAwo4SU1twTTEtIpTYhtzuz/exec?Broken&"
   // Get Input Values
   for (x=1; x<fields.length+1; x++) {var id = "f"+x
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = 		document.querySelector('input[name="'+id+'"]:checked').value}
   var url = script+String(x==fields.length)+"&"+x+"&"+out
-  document.getElementById('r'+x).setAttribute('src',url)  
-  //fetch(url)
+  setTimeout(document.getElementById('r'+x).setAttribute('src',url),5000)
   }
   // Return To Home Page
-  window.top.location.href = "/cbform/Form/"
+  setInterval(function () {window.top.location.href = "/cbform/Form/"}, 2000);
   }
 
   </script></body></html>
