@@ -50,12 +50,7 @@ var pages = []
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
   var url = script+String(x==fields.length)+"&"+x+"&"+out
-  pages.push(window.open(url, '_blank'))
-  //  fetch(url)
-}
-return
-  for (x=0; x<pages.length; x++) {
-    pages[x].close()
+  fetch(url)
   }
   // Return To Home Page
   window.top.location.href = "/cbform/Form/"}
