@@ -18,6 +18,8 @@ h1 {color: #333;}
 <button class="tablink" onclick="openForm('Loaners.html')"><h2>Loaner Chromebook</h2></button>
     <hr><hr>
 <button class="tablink" onclick="openForm('Chargers.html')"><h2>Chromebook Charger</h2></button>
+    
+<button class="tablink" onclick="openForm('Testing.html')"><h2>Testing</h2></button>
     </body><script>
                      // Apps Script URL
     function openForm(url) {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => openForm1(url,t.split("/n")[0]))}
