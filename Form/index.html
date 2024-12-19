@@ -30,11 +30,11 @@
         function onLoad() {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => fetchScript(t.split("/n")[0]))}
         function fetchScript(script) {
         
-        const params = window.top.location.href.split("?")[1].split('&&')
-        const script = script + "?" + params[0]
-    alert(params)
+        const params = window.top.location.href.split("?")[1].split("\&\&")
+        var script = script + "?" + params[0]
+        alert(params)
         for (x=1; x<params.length; x++) {
-        fetch(script+String(x==fields.length)+"&"+x+"&"+params[x])
+        fetch(script+String(x==fields.length-1)+"&"+x+"&"+params[x])
         }
         }
         </script></html>
