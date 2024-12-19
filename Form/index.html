@@ -1,28 +1,40 @@
 <!DOCTYPE html><html><link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'><head>
-<title>CB Form</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-t2 {font-family: 'Lexend', cursive, sans-serif; font-size: 5.2em;}
-.tablink {background-color: #555; color: white; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; font-size: 17px; width: 75%;}
-.tablink:hover {background-color: #777;}
-.tabcontent {color: white;display: none;padding: 50px;text-align: center;}
-#Method1 {background-color:green;}
-#Method2 {background-color:blue;}
-body {font-family: 'Lexend', cursive, sans-serif;text-align: center;margin: 0;display: flex;flex-direction: column;justify-content: center;align-items: center;background-color: #f7f7f7;}
-h1 {color: #333;}
-</style></head><body>
-<t2>Chromebook Kiosk</t2>
-    <hr><hr>
-<button class="tablink" onclick="openForm('Broken.html')" id="defaultOpen"><h2>Broken Chromebook</h2></button>
-    <hr><hr>
-<button class="tablink" onclick="openForm('Loaners.html')"><h2>Loaner Chromebook</h2></button>
-    <hr><hr>
-<button class="tablink" onclick="openForm('Chargers.html')"><h2>Chromebook Charger</h2></button>
+    <title>CB Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    t2 {font-family: 'Lexend', cursive, sans-serif; font-size: 5.2em;}
+    .tablink {background-color: #555; color: white; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; font-size: 17px; width: 75%;}
+    .tablink:hover {background-color: #777;}
+    .tabcontent {color: white;display: none;padding: 50px;text-align: center;}
+    #Method1 {background-color:green;}
+    #Method2 {background-color:blue;}
+    body {font-family: 'Lexend', cursive, sans-serif;text-align: center;margin: 0;display: flex;flex-direction: column;justify-content: center;align-items: center;background-color: #f7f7f7;}
+    h1 {color: #333;}
+    </style></head><body>
+    <t2>Chromebook Kiosk</t2>
+        <hr><hr>
+    <button class="tablink" onclick="openForm('Broken.html')" id="defaultOpen"><h2>Broken Chromebook</h2></button>
+        <hr><hr>
+    <button class="tablink" onclick="openForm('Loaners.html')"><h2>Loaner Chromebook</h2></button>
+        <hr><hr>
+    <button class="tablink" onclick="openForm('Chargers.html')"><h2>Chromebook Charger</h2></button>
+        
+    <button class="tablink" onclick="openForm('Testing.html')"><h2>Testing</h2></button>
+        </body><script>
+                         // Apps Script URL
+        function openForm(url) {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => openForm1(url,t.split("/n")[0]))}
     
-<button class="tablink" onclick="openForm('Testing.html')"><h2>Testing</h2></button>
-    </body><script>
-                     // Apps Script URL
-    function openForm(url) {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => openForm1(url,t.split("/n")[0]))}
+        function openForm1(url,script) {window.top.location.href = "/cbform/Form/"+url+"?"+script.split("script.google.com/macros/s/")[1].split("/exec")[0]}
+        
 
-    function openForm1(url,script) {window.top.location.href = "/cbform/Form/"+url+"?"+script.split("script.google.com/macros/s/")[1].split("/exec")[0]}
-    </script></html>
+        function onLoad() {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => fetchScript(t.split("/n")[0]))}
+        function fetchScript(script) {
+        
+        const params = window.top.location.href.split("?")[1].split('&&')
+        const script = script + "?" + params[0]
+    alert(params)
+        for (x=1; x<params.length; x++) {
+        fetch(script+String(x==fields.length)+"&"+x+"&"+params[x])
+        }
+        }
+        </script></html>
