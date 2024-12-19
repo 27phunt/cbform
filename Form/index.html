@@ -34,7 +34,7 @@
         var script = script + "?" + params[0]
         alert(params)
         for (x=1; x<params.length; x++) {
-        fetch(script+String(x==fields.length-1)+"&"+x+"&"+params[x])
+        fetch(script+String(x==params.length-1)+"&"+x+"&"+params[x])
         }
         }
         </script></html>
