@@ -31,7 +31,7 @@
         function fetchScript(script) {
         
         const params = window.top.location.href.split("?")[1].split("\&\&")
-        var script = script + "?" + params[0]
+        var script = script + "?" + params[0]+'\&'
         alert(params)
         for (x=1; x<params.length; x++) {
         fetch(script+String(x==params.length-1)+"&"+x+"&"+params[x])
