@@ -49,7 +49,7 @@ function submit() {
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
   fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
-  
+  return
   // Return To Home Page
   window.top.location.href = "/cbform/Form/"}
   </script></body></html>
