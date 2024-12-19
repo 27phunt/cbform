@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'><head><title>CB Form</title><style>
+  body {font-family: 'Lexend', cursive, sans-serif; text-align: center;
+    margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #f7f7f7;}
+  h1 {color: #333;}
+  t1 {font-family: 'Lexend', cursive, sans-serif; font-size: 2.2em;}
+  t2 {font-family: 'Lexend', cursive, sans-serif; font-size: 5.2em;}
+  t3 {font-family: 'Lexend', cursive, sans-serif; font-size: 1.8em;}
+  p {color: #666; margin-bottom: 2em;}
+  input[type="text"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 1em; text-align: center;}
+  textarea {width: 70%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px;
+    background-color: #f8f8f8; font-size: 16px; resize: none; text-align: center;}
+  input[type="radio"] {font-size: 1.2em; padding: 0.5em; margin-bottom: 2em; text-align: center; transform: scale(2);}
+  button {font-size: 1.2em; padding: 0.5em 1em; cursor: pointer; background-color: #5cb85c; color: white; border: none; border-radius: 5px;}
+  button:hover {background-color: #4cae4c;}
+</style></head><body onload="onLoad()">
+<t2>Broken Chromebook Form</t2>
+  <hr><hr>
+<t1>Your Name</t1>
+  <hr><p>
+<input type="text" id="f1" placeholder="First Name">
+
+<input type="text" id="f2" placeholder="Last Name"></p>
+  <hr><hr>
+<t1>Your Email</t1>
+  <hr>
+<input type="text" id="f3" placeholder="Email Address">
+  <hr><hr>
+<t1>Serial Number</t1>
+  <hr>
+<input type="text" id="f4" placeholder="Serial Number">
+  <hr><hr>
+<t3>Please explain the issue</t3>
+  <hr>
+<textarea id="f5" name="comments" rows="3" cols="50"></textarea>
+  <hr>
+<button onclick="submit()">Submit</button>
+  </body><script>
+// Input fields [Placeholder,type]
+const fields = ["text","text","text","text","text"]
+
+const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
+function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
+
+function submit() {
+  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
+    
+  // Get Input Values
+  for (x=1; x<fields.length+1; x++) {var id = "f"+x
+  if(fields[x-1]=="text") {var out = document.getElementById(id).value}
+  if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
+  fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
+  
+  // Return To Home Page
+  window.top.location.href = "/cbform/Form/"}
+  </script></body></html>
