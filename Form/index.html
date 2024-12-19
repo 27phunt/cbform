@@ -22,7 +22,7 @@
     <button class="tablink" onclick="openForm('Testing.html')"><h2>Testing</h2></button>
         </body><script>
                          // Apps Script URL    
-        function openForm1(url) {window.top.location.href = "/cbform/Form/"+url}
+        function openForm(url) {window.top.location.href = "/cbform/Form/"+url}
 
         function onLoad() {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => fetchScript(t.split("/n")[0]))}
         function fetchScript(script) {
