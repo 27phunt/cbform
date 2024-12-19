@@ -42,14 +42,11 @@ const sheet = window.location.pathname.split("/Form/")[1].split(".html")[0]
 function onLoad() {document.getElementById("title").textContent = sheet.split("s")[0]+" Chromebook Form"}
 
 function submit() {
-  var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
-    
   // Get Input Values
-  for (x=1; x<fields.length+1; x++) {var id = "f"+x
+var values = sheet; for (x=1; x<fields.length+1; x++) {var id = "f"+x
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
-  fetch(script+String(x==fields.length)+"&"+x+"&"+out)}
-  
-  // Return To Home Page
-  window.top.location.href = "/cbform/Form/"}
+var values = values + '&&' + out}
+window.top.location.href = "/cbform/Form/?"+values
+}
   </script></body></html>
