@@ -45,13 +45,13 @@ function submit() {
   var script = "https://script.google.com/macros/s/"+window.top.location.href.split("?")[1]+"/exec?"+sheet+"&"
     
   // Get Input Values
+var values = sheet
   for (x=1; x<fields.length+1; x++) {var id = "f"+x
   if(fields[x-1]=="text") {var out = document.getElementById(id).value}
   if(fields[x-1]=="radio") {var out = document.querySelector('input[name="'+id+'"]:checked').value}
-    fetch(script+String(x==fields.length)+"&"+x+"&"+out)
+    var values = values + '&&' + out
 }
-for(x=0; x<1000; x++) {console.log('delay')}
-window.top.location.href = "/cbform/Form/"
+window.top.location.href = "/cbform/Form/?"+values
 
 }
   </script></body></html>
