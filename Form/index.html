@@ -26,8 +26,9 @@
 
         function onLoad() {fetch(window.location.pathname+"/AppsScript.txt").then(r => r.text() ).then(t => fetchScript(t.split("/n")[0]))}
         function fetchScript(script) {
+        try{
         const params = window.top.location.href.split("?")[1].split("\&\&")
         var script = script + "?" + params[0]+'\&'
         for (x=1; x<params.length; x++) {fetch(script+String(x==params.length-1)+"&"+x+"&"+params[x])}
-        }
+        } catch {}}
         </script></html>
